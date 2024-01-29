@@ -1,12 +1,20 @@
-<!-- projects/templates/profile_detail.html -->
+<!-- profile_detail.html -->
 
-{% extends 'base.html' %}
+<h1>{{ profile.name }}</h1>
+<p>GitHub: {{ profile.github }}</p>
+<p>LinkedIn: {{ profile.linkedin }}</p>
+<p>Bio: {{ profile.bio }}</p>
 
-{% block title %}{{ profile.name }} Details{% endblock %}
+<h2>Certificates:</h2>
+<ul>
+    {% for certificate in certificates %}
+        <li>{{ certificate.name }} - {{ certificate.certifying_institution.name }}</li>
+    {% endfor %}
+</ul>
 
-{% block content %}
-  <h1>{{ profile.name }} Details</h1>
-  <p><strong>GitHub:</strong> {{ profile.github }}</p>
-  <p><strong>LinkedIn:</strong> {{ profile.linkedin }}</p>
-  <p><strong>Bio:</strong> {{ profile.bio }}</p>
-{% endblock %}
+<h2>Certifying Institutions:</h2>
+<ul>
+    {% for institution in certifying_institutions %}
+        <li>{{ institution.name }}</li>
+    {% endfor %}
+</ul>

@@ -26,9 +26,12 @@ class ProfileListCreateView(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         if request.method == "GET":
-            return render(
-                request, "profile_detail.html", {"profile": serializer.data}
-            )
+            projects = getattr(instance, "projects", None)
+            if projects is None:
+                projects = instance.project_set.all()
+
+            context = {"profile": serializer.data, "projects": projects}
+            return render(request, "profile_detail.html", context)
         return super().retrieve(request, *args, **kwargs)
 
 
