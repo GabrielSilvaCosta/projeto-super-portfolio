@@ -1,8 +1,8 @@
 O projeto Super Portfólio foi desenvolvido como uma API para gerenciar perfis, projetos, instituições certificadoras e certificados.
 
 Aqui está uma breve descrição dos principais componentes:
-Modelos (models.py):
 
+Modelos (models.py):
 Foram definidos quatro modelos: Profile, Project, CertifyingInstitution, e Certificate.
 Cada modelo representa uma entidade específica, como perfil pessoal, projeto, instituição certificadora e certificado, respectivamente.
 Atributos como nome, descrição, URLs e informações relacionadas foram incluídos nos modelos.
